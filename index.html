@@ -12,6 +12,7 @@
   <main>
     <div id="root">
       <h1 v-bind:class="custClass">{{ title }}</h1>
+      <img @mouseenter="enterFunc" @mouseleave="leaveFunc" v-bind:src="image" alt="">
     </div>
   </main>
 
