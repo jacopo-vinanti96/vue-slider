@@ -13,13 +13,13 @@
   <div class="body__conatiner">
     <main>
       <div class="carousel-container" id="root">
-        <div class="content">
+        <div id="car-content" class="content" v-bind:class="overlay == true? 'overlay' : ''">
           <div class="btn-container">
             <button id="ss-btn" @click="slideShow" type="button" name="button">Slideshow</button>
           </div>
           <div class="wrapper">
             <i @click="prevImg" class="fas fa-angle-left"></i>
-            <img v-bind:src="images[imgIndex].url" alt="images[imgIndex].alt">
+            <img id="car-img-id" class="car-img" v-bind:src="images[imgIndex].url" alt="images[imgIndex].alt" v-bind:class="overlay == true? 'ss' : ''">
             <i @click="nextImg" class="fas fa-angle-right"></i>
           </div>
           <div class="bullet">

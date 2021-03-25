@@ -17,6 +17,7 @@ const img1 = {
 
 let ssBtn;
 let interval;
+let divContent = document.getElementById('car-content');
 
 const app = new Vue ({
   el: '#root',
@@ -28,6 +29,7 @@ const app = new Vue ({
       img4
     ],
     imgIndex: 0,
+    overlay: false,
   },
   methods: {
     prevImg: function () {
@@ -51,6 +53,7 @@ const app = new Vue ({
     slideShow: function (event) {
       interval = setInterval(intervalFunction, 3000);
       ssBtn = event.target;
+      this.overlay = true;
       function intervalFunction() {
         app.slideMeth();
       }
@@ -58,8 +61,13 @@ const app = new Vue ({
   }
 });
 
+let carImg = document.getElementById('car-img-id');
+let carContent = document.getElementById('car-content');
+
 document.addEventListener('click', function (event) {
   if ( event.target != ssBtn ) {
     clearInterval(interval);
+    carContent.classList.remove("overlay");
+    carImg.classList.remove("ss");
   }
 });
