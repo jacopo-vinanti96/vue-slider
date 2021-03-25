@@ -35,7 +35,7 @@ const app = new Vue ({
     },
     nextImg: function () {
       this.imgIndex++ ;
-      if ( this.imgIndex == this.images.length + 1 ) {
+      if ( this.imgIndex == this.images.length ) {
         this.imgIndex = 0;
       }
     }

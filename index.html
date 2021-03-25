@@ -14,9 +14,14 @@
     <main>
       <div class="carousel-container" id="root">
         <div class="content">
-          <i @click="prevImg" class="fas fa-angle-left"></i>
-          <img v-bind:src="images[imgIndex].url" alt="images[imgIndex].alt">
-          <i @click="nextImg" class="fas fa-angle-right"></i>
+          <div class="wrapper">
+            <i @click="prevImg" class="fas fa-angle-left"></i>
+            <img v-bind:src="images[imgIndex].url" alt="images[imgIndex].alt">
+            <i @click="nextImg" class="fas fa-angle-right"></i>
+          </div>
+          <div class="bullet">
+            <i v-for="(image, bltIndex) in images" class="fas fa-circle" v-bind:class="bltIndex == imgIndex ? 'active' : ''" ></i>
+          </div>
         </div>
       </div>
     </main>
