@@ -13,9 +13,11 @@
   <div class="body__conatiner">
     <main>
       <div class="carousel-container" id="root">
-        <i class="fas fa-angle-left"></i>
-        <img v-bind:src="images[imgIndex].url" alt="images[imgIndex].alt">
-        <i class="fas fa-angle-right"></i>
+        <div class="content">
+          <i class="fas fa-angle-left"></i>
+          <img v-bind:src="images[imgIndex].url" alt="images[imgIndex].alt">
+          <i class="fas fa-angle-right"></i>
+        </div>
       </div>
     </main>
   </div>

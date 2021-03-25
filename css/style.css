@@ -1,3 +1,9 @@
+/* Reset */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 
 .body__conatiner {
   background: linear-gradient(0deg, rgba(2,0,36,1) 0%,
@@ -6,15 +12,54 @@
   height: 100vh;
 }
 
-.carousel-container {
+main {
+  height: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
-  margin: auto;
-  width: 800px;
-  background: linear-gradient(0deg, rgba(255,89,30,1) 0%, rgba(255,235,30,1) 100%);
 }
 
-img {
+.carousel-container {
+  position: relative;
+  margin: auto;
+  background: linear-gradient(0deg, rgba(255,89,30,1) 0%, rgba(255,235,30,1) 100%);
+  z-index: 1;
+}
+
+.carousel-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: repeating-linear-gradient(
+  0deg,
+  rgba(255,235,30,1),
+  rgba(255,235,30,1) 20px,
+  rgba(0, 0, 0, 0.0) 20px,
+  rgba(0, 0, 0, 0.0) 40px
+  );
+  z-index: 2;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  padding: 60px 0;
+  width: 800px;
+}
+
+.content i {
+  font-size: 60px;
+  cursor: pointer;
+  color: #E82009;
+  text-shadow: 2px 2px 5px black;
+}
+
+.content img {
   width: 600px;
 }
