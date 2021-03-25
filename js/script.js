@@ -15,10 +15,6 @@ const img1 = {
               alt: 'Cascata di Moraduccio'
             };
 
-let ssBtn;
-let interval;
-let divContent = document.getElementById('car-content');
-
 const app = new Vue ({
   el: '#root',
   data: {
@@ -29,7 +25,6 @@ const app = new Vue ({
       img4
     ],
     imgIndex: 0,
-    overlay: false,
   },
   methods: {
     prevImg: function () {
@@ -51,9 +46,18 @@ const app = new Vue ({
       }
     },
     slideShow: function (event) {
-      interval = setInterval(intervalFunction, 3000);
-      ssBtn = event.target;
-      this.overlay = true;
+      let interval = setInterval(intervalFunction, 3000);
+      let ssBtn = event.target;
+      document.addEventListener('click', function (event) {
+        if ( event.target != ssBtn ) {
+          clearInterval(interval);
+          carContent.classList.remove("overlay");
+          carImg.classList.remove("ss");
+        } else {
+          carContent.classList.add("overlay");
+          carImg.classList.add("ss");
+        }
+      });
       function intervalFunction() {
         app.slideMeth();
       }
@@ -61,13 +65,5 @@ const app = new Vue ({
   }
 });
 
-let carImg = document.getElementById('car-img-id');
-let carContent = document.getElementById('car-content');
-
-document.addEventListener('click', function (event) {
-  if ( event.target != ssBtn ) {
-    clearInterval(interval);
-    carContent.classList.remove("overlay");
-    carImg.classList.remove("ss");
-  }
-});
+const carImg = document.getElementById('car-img-id');
+const carContent = document.getElementById('car-content');
