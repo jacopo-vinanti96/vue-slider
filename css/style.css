@@ -20,6 +20,15 @@ main {
   height: 100%;
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
+}
+
+h1 {
+  color: white;
+  width: 100%;
+  text-align: center;
+  text-shadow: 0 0 15px white;
+  font-size: 45px;
 }
 
 .carousel-container {
@@ -55,7 +64,7 @@ main {
 
 .btn-container {
   position: absolute;
-  top: 25px;
+  top: 17px;
   left: 50%;
   transform: translate(-50%);
   text-align: center;
@@ -68,11 +77,11 @@ main {
   background-color: orange;
   color: #6E1303;
   box-shadow: 2px 2px 5px black;
+  font-size: 18px;
 }
 
 .wrapper {
   width: 100%;
-  height: 375px;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -89,8 +98,11 @@ main {
 
 .car-img {
   width: 600px;
+  height: 355px;
   position: relative;
-  z-index: 5
+  z-index: 5;
+  object-fit: cover;
+  object-position: center;
 }
 
 .overlay::after {
@@ -107,7 +119,9 @@ main {
 .car-img.ss {
   width: auto;
   max-width: 75vw;
+  height: auto;
   position: absolute;
+  bottom: -30%;
 }
 
 .bullet {
@@ -122,7 +136,8 @@ main {
   margin: 5px;
 }
 
-
+.content i:hover,
+.bullet i:hover,
 .bullet i.active {
   color: yellow;
 }
