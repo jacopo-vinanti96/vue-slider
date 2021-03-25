@@ -16,6 +16,7 @@ const img1 = {
             };
 
 let clicked = false;
+let ssBtn;
 
 const app = new Vue ({
   el: '#root',
@@ -47,19 +48,23 @@ const app = new Vue ({
         this.imgIndex = 0;
       }
     },
-    slideShow: function () {
-        let interval = setInterval(intervalFunction, 5000)
+    slideShow: function (event) {
+        let interval = setInterval(intervalFunction, 3000)
+        ssBtn = event.target;
         clicked = false;
         function intervalFunction() {
-        app.slideMeth();
-        if ( clicked == true ) {
-          clearInterval(interval);
-        }
+          if ( clicked == true ) {
+            clearInterval(interval);
+          } else {
+            app.slideMeth();
+          }
       }
     }
   }
 });
 
-document.addEventListener('click', function () {
-  clicked = true;
+document.addEventListener('click', function (event) {
+  if ( event.target != ssBtn ) {
+    clicked = true;
+  }
 });
