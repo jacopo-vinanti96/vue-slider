@@ -14,6 +14,9 @@
     <main>
       <div class="carousel-container" id="root">
         <div class="content">
+          <div class="btn-container">
+            <button @click="slideShow" type="button" name="button">Slideshow</button>
+          </div>
           <div class="wrapper">
             <i @click="prevImg" class="fas fa-angle-left"></i>
             <img v-bind:src="images[imgIndex].url" alt="images[imgIndex].alt">

@@ -39,6 +39,17 @@ const app = new Vue ({
         this.imgIndex = 0;
       }
     },
+    slideMeth() {
+      this.imgIndex++ ;
+      if ( this.imgIndex == this.images.length ) {
+        this.imgIndex = 0;
+      }
+    },
+    slideShow: function () {
+        setInterval(function () {
+        app.slideMeth();
+      }, 5000)
+    }
   }
 
 })
