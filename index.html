@@ -20,7 +20,7 @@
             <i @click="nextImg" class="fas fa-angle-right"></i>
           </div>
           <div class="bullet">
-            <i v-for="(image, bltIndex) in images" class="fas fa-circle" v-bind:class="bltIndex == imgIndex ? 'active' : ''" ></i>
+            <i v-for="(image, bltIndex) in images" class="fas fa-circle" v-bind:class="bltIndex == imgIndex ? 'active' : ''" @click="imgIndex = bltIndex" ></i>
           </div>
         </div>
       </div>
