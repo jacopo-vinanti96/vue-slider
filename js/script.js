@@ -24,14 +24,20 @@ const app = new Vue ({
       img3,
       img4
     ],
-    imgIndex: 2
+    imgIndex: 0
   },
   methods: {
-    enterFunc: function () {
-      this.image = img2;
+    prevImg: function () {
+      this.imgIndex-- ;
+      if ( this.imgIndex < 0 ) {
+        this.imgIndex = this.images.length - 1;
+      }
     },
-    leaveFunc: function () {
-      this.image = img1;
+    nextImg: function () {
+      this.imgIndex++ ;
+      if ( this.imgIndex == this.images.length + 1 ) {
+        this.imgIndex = 0;
+      }
     }
   }
 

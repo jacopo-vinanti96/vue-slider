@@ -14,9 +14,9 @@
     <main>
       <div class="carousel-container" id="root">
         <div class="content">
-          <i class="fas fa-angle-left"></i>
+          <i @click="prevImg" class="fas fa-angle-left"></i>
           <img v-bind:src="images[imgIndex].url" alt="images[imgIndex].alt">
-          <i class="fas fa-angle-right"></i>
+          <i @click="nextImg" class="fas fa-angle-right"></i>
         </div>
       </div>
     </main>
