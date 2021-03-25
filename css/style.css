@@ -88,6 +88,12 @@ main {
 
 .content img {
   width: 600px;
+  position: relative;
+  z-index: 4
+}
+
+.content img.ss {
+  width: auto;
 }
 
 .bullet {

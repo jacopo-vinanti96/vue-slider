@@ -15,6 +15,8 @@ const img1 = {
               alt: 'Cascata di Moraduccio'
             };
 
+let clicked = false;
+
 const app = new Vue ({
   el: '#root',
   data: {
@@ -24,7 +26,7 @@ const app = new Vue ({
       img3,
       img4
     ],
-    imgIndex: 0
+    imgIndex: 0,
   },
   methods: {
     prevImg: function () {
@@ -46,10 +48,18 @@ const app = new Vue ({
       }
     },
     slideShow: function () {
-        setInterval(function () {
+        let interval = setInterval(intervalFunction, 5000)
+        clicked = false;
+        function intervalFunction() {
         app.slideMeth();
-      }, 5000)
+        if ( clicked == true ) {
+          clearInterval(interval);
+        }
+      }
     }
   }
+});
 
-})
+document.addEventListener('click', function () {
+  clicked = true;
+});
